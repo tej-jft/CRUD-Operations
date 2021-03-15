@@ -57,6 +57,15 @@
                 <div class="navbar-header">
                     <a class="navbar-brand top-nav" runat="server" href="#">CRUD Operations</a>
                 </div>
+                <div class="navbar-header">
+                    <a id="a1" runat="server" class="navbar-brand top-nav " data-toggle="modal" data-target="#AddModal"></a>
+                </div>
+                <div class="navbar-header">
+                    
+                </div>
+                <div class="navbar-header">
+                    <a id="adbtn" runat="server" class="navbar-brand top-nav " data-toggle="modal" data-target="#AddModal">Add New Record</a>
+                </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav lbtn">
                         <li><a id="link1" runat="server" href="LogOut.aspx" class="btn-lgt">LogOut</a></li>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -23,13 +24,16 @@ namespace CRUD_Operations
                 {
                     string id = Request.QueryString["id"].ToString();
                     DataTable dt = new DataTable();
-                    SqlConnection con = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=EmployeeCRUD_DB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-                    SqlCommand cmd = new SqlCommand("select * from dbo.Employees where id=" + Convert.ToInt32(id), con);
+                    string conn = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+                    SqlConnection cn = new SqlConnection(conn);
+                    SqlCommand cmd = new SqlCommand("SelectEmployee", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@id", Convert.ToInt32(id));
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     sda.Fill(dt);
-                    con.Open();
+                    cn.Open();
                     int i = cmd.ExecuteNonQuery();
-                    con.Close();
+                    cn.Close();
                     int isd = 0;
                     foreach (DataRow dr in dt.Rows)
                     {

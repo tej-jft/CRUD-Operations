@@ -105,14 +105,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="add.aspx" />
+    <Content Include="Add.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CRUDHome.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="DataFill.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Delete.aspx" />
@@ -169,12 +169,12 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="add.aspx.cs">
-      <DependentUpon>add.aspx</DependentUpon>
+    <Compile Include="Add.aspx.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="add.aspx.designer.cs">
-      <DependentUpon>add.aspx</DependentUpon>
+    <Compile Include="Add.aspx.designer.cs">
+      <DependentUpon>Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -185,12 +185,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CRUDHome.aspx.cs">
-      <DependentUpon>CRUDHome.aspx</DependentUpon>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CRUDHome.aspx.designer.cs">
-      <DependentUpon>CRUDHome.aspx</DependentUpon>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataFill.aspx.cs">
       <DependentUpon>DataFill.aspx</DependentUpon>

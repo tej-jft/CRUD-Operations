@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="add.aspx.cs" Inherits="CRUD_Operations.add" %>
+﻿<%@ Page Title="Add Record" Language="C#" AutoEventWireup="true" CodeBehind="Add.aspx.cs" Inherits="CRUD_Operations.Add" %>
 
 <!DOCTYPE html>
 

@@ -7,7 +7,7 @@
         <h3 class="text-center">Login Here</h3>
     </div>
 
-    <div class="row flex">
+    <div class="d-flex justify-content-center">
         <div class="col-md-12" style="justify-content:center;">
 
             <div class="form-row">
@@ -30,4 +30,5 @@
               </div>
         </div>
     </div>
+
 </asp:Content>

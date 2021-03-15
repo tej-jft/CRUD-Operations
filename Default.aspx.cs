@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using CRUD_Operations;
+using System.Web.UI;
 
 namespace CRUD_Operations
 {
@@ -18,21 +14,24 @@ namespace CRUD_Operations
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=EmployeeCRUD_DB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
-            SqlCommand cmd = new SqlCommand("select * from tbl_data where username=@username and password=@password", con);
+
+            string conn = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
+
+            SqlConnection cn = new SqlConnection(conn);
+            SqlCommand cmd = new SqlCommand("SelectUser", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@username", TextBox1.Text);
             cmd.Parameters.AddWithValue("password", TextBox2.Text);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sda.Fill(dt);
-            con.Open();
-            int i = cmd.ExecuteNonQuery();
-            con.Close();
+            cn.Open();
+            _= cmd.ExecuteNonQuery();
+            cn.Close();
             if (dt.Rows.Count > 0)
             {
                 Session["id"] = TextBox1.Text;
-
-                Response.Redirect("CRUDHome.aspx");
+                Response.Redirect("Home.aspx");
             }
             else
             {
