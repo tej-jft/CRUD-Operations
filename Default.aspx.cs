@@ -26,7 +26,7 @@ namespace CRUD_Operations
             DataTable dt = new DataTable();
             sda.Fill(dt);
             cn.Open();
-            _= cmd.ExecuteNonQuery();
+            _ = cmd.ExecuteNonQuery();
             cn.Close();
             if (dt.Rows.Count > 0)
             {

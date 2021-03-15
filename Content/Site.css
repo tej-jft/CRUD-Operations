@@ -61,3 +61,6 @@ h2 {
     background:none;
     color:rgb(255 255 255);
 }
+input{
+    max-width:none;
+}

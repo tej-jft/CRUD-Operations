@@ -31,7 +31,10 @@
 
 </head>
 <body >
-    <form runat="server" id="form1">
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-md-12">
+                <form runat="server" id="form1">
         <asp:ScriptManager runat="server" EnablePageMethods='true'>
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -58,13 +61,13 @@
                     <a class="navbar-brand top-nav" runat="server" href="#">CRUD Operations</a>
                 </div>
                 <div class="navbar-header">
-                    <a id="a1" runat="server" class="navbar-brand top-nav " data-toggle="modal" data-target="#AddModal"></a>
+                    
                 </div>
                 <div class="navbar-header">
                     
                 </div>
                 <div class="navbar-header">
-                    <a id="adbtn" runat="server" class="navbar-brand top-nav " data-toggle="modal" data-target="#AddModal">Add New Record</a>
+                    <li><a id="adbtn" runat="server" class="navbar-brand top-nav " data-toggle="modal" data-target="#AddModal" href="#">Add New Record</a></li>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav lbtn">
@@ -79,10 +82,13 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> -CRUD Operation Application</p>
+                <p class="text-center">&copy; <%: DateTime.Now.Year %> -CRUD Operation Application</p>
             </footer>
         </div>
 
     </form>
+           </div>
+       </div>
+   </div>
 </body>
 </html>

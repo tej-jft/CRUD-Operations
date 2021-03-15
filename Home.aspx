@@ -32,7 +32,7 @@
               <div class="modal-header">
                 <h5 class="modal-title" id="EditModalLongTitle">Edit Record</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+                  <span aria-hidden="true" style="margin-top: -162%;float: right;">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
@@ -102,7 +102,6 @@
     </div>
 </div>
 <!-- End of Alert Modal-->
-    <p id="testres"></p>
     <input type="hidden" value="" id="empid" />
 
     <!--Modal for new record-->
@@ -154,20 +153,33 @@
         var eemail = document.getElementById("MainContent_email").value;
         var econtact = document.getElementById("MainContent_econtact").value;
         var esalary = document.getElementById("MainContent_esalary").value;
-        if (ename == "" || ename.length < 3 || econtact.length != 10 || esalary.length < 3) {
-            alert("Invalid Entries. Unable To Insert The Data. ");
+        if (ename == "" || ename.length < 3) {
+            document.getElementById("MainContent_ename").style.borderColor = "red";
             mdbutton.setAttribute("data-dismiss", "none");
             return (false);
+        } else {
+            document.getElementById("MainContent_ename").style.borderColor = "green";
         }
-        if (Number.isNaN(esalary)) {
-            alert("Invalid Value For Salary. Unable To Insert The Data. ");
+        if (econtact.length != 10) {
+            document.getElementById("MainContent_econtact").style.borderColor = "red";
             mdbutton.setAttribute("data-dismiss", "none");
             return (false);
+        } else {
+            document.getElementById("MainContent_econtact").style.borderColor = "green";
+        }
+        if (Number.isNaN(esalary) || esalary.length < 3) {
+            document.getElementById("MainContent_esalary").style.borderColor = "red";
+            mdbutton.setAttribute("data-dismiss", "none");
+            return (false);
+        } else {
+            document.getElementById("MainContent_esalary").style.borderColor = "green";
         }
         if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(eemail)) {
-            alert("Invalid Email Address. Unable To Insert The Data. ");
+            document.getElementById("MainContent_email").style.borderColor = "red";
             mdbutton.setAttribute("data-dismiss", "none");
             return (false);
+        } else {
+            document.getElementById("MainContent_email").style.borderColor = "green";
         }
             
         var xmlhttp = new XMLHttpRequest();
@@ -217,29 +229,42 @@
     //For-Updating any Record
     function update() {
         var mdbutton = document.getElementById("edit_btn");
-        var name = document.getElementById("MainContent_empname").value;
-        var email = document.getElementById("MainContent_empmail").value;
-        var contact = document.getElementById("MainContent_empcontact").value;
-        var salary = document.getElementById("MainContent_empsalary").value;
+        var name = document.getElementById("MainContent_empname");
+        var email = document.getElementById("MainContent_empmail");
+        var contact = document.getElementById("MainContent_empcontact");
+        var salary = document.getElementById("MainContent_empsalary");
         var id = document.getElementById("empid").value;
 
-        if (name == "" || name.length < 3 || contact.length != 10 || salary.length < 3) {
-            alert("Invalid Entries. Unable To Insert The Data. ");
+        if (name.value === "" || name.value.length < 3) {
+            document.getElementById("MainContent_empname").style.borderColor = "red";
             mdbutton.setAttribute("data-dismiss", "none");
             return (false);
+        } else {
+            document.getElementById("MainContent_empname").style.borderColor = "green";
         }
-        if (Number.isNaN(salary)) {
-            alert("Invalid Value For Salary. Unable To Insert The Data. ");
+        if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email.value)) {
+            document.getElementById("MainContent_empmail").style.borderColor = "red";
             mdbutton.setAttribute("data-dismiss", "none");
             return (false);
+        } else {
+            document.getElementById("MainContent_empmail").style.borderColor = "green";
         }
-        if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) {
-            alert("Invalid Email Address. Unable To Insert The Data. ");
+        if (contact.value.length != 10) {
+            document.getElementById("MainContent_empcontact").style.borderColor = "red";
             mdbutton.setAttribute("data-dismiss", "none");
             return (false);
+        } else {
+            document.getElementById("MainContent_empcontact").style.borderColor = "green";
+        }
+        if (Number.isNaN(salary.value) || salary.value.length < 3) {
+            document.getElementById("MainContent_empsalary").style.borderColor = "red";
+            mdbutton.setAttribute("data-dismiss", "none");
+            return (false);
+        } else {
+            document.getElementById("MainContent_empsalary").style.borderColor = "green";
         }
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "Edit.aspx?name=" + name + "&email=" + email + "&contact=" + contact + "&salary=" + salary+"&id="+id, false);
+        xmlhttp.open("POST", "Edit.aspx?name=" + name.value + "&email=" + email.value + "&contact=" + contact.value + "&salary=" + salary.value+"&id="+id, false);
         xmlhttp.send(null);
         mdbutton.setAttribute("data-dismiss", "modal");
         document.getElementById("MainContent_empname").value = "";
@@ -273,5 +298,4 @@
     }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
-`
 </asp:content>

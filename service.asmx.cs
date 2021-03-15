@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Services;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 using System.Web.Script.Serialization;
+using System.Web.Services;
 
 namespace CRUD_Operations
 {
@@ -22,40 +20,40 @@ namespace CRUD_Operations
     {
 
         [WebMethod]
-        public string UpdateEmployee(string emp,string salalry)
+        public string UpdateEmployee(string emp, string salalry)
         {
             //string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
             //using (SqlConnection con = new SqlConnection(CS))
             //{ 
             //    //SqlCommand cmd = new SqlCommand("spUpdateEmployee", con);
-                //cmd.CommandType = CommandType.StoredProcedure;
-                //cmd.Parameters.Add(new SqlParameter()
-                //{
-                //    ParameterName = "@id",
-                //    Value = emp.ID
-                //});
-                //cmd.Parameters.Add(new SqlParameter()
-                //{
-                //    ParameterName = "@Name",
-                //    Value = emp.Name
-                //});
-                //cmd.Parameters.Add(new SqlParameter()
-                //{
-                //    ParameterName = "@email",
-                //    Value = emp.email
-                //});
-                //cmd.Parameters.Add(new SqlParameter()
-                //{
-                //    ParameterName = "@Contact",
-                //    Value = emp.Contact
-                //});
-                //cmd.Parameters.Add(new SqlParameter()
-                //{
-                //    ParameterName = "@Salary",
-                //    Value = emp.Salary
-                //});
-                //con.Open();
-                //cmd.ExecuteNonQuery();
+            //cmd.CommandType = CommandType.StoredProcedure;
+            //cmd.Parameters.Add(new SqlParameter()
+            //{
+            //    ParameterName = "@id",
+            //    Value = emp.ID
+            //});
+            //cmd.Parameters.Add(new SqlParameter()
+            //{
+            //    ParameterName = "@Name",
+            //    Value = emp.Name
+            //});
+            //cmd.Parameters.Add(new SqlParameter()
+            //{
+            //    ParameterName = "@email",
+            //    Value = emp.email
+            //});
+            //cmd.Parameters.Add(new SqlParameter()
+            //{
+            //    ParameterName = "@Contact",
+            //    Value = emp.Contact
+            //});
+            //cmd.Parameters.Add(new SqlParameter()
+            //{
+            //    ParameterName = "@Salary",
+            //    Value = emp.Salary
+            //});
+            //con.Open();
+            //cmd.ExecuteNonQuery();
             //}
             return emp + " " + salalry;
         }
