@@ -18,6 +18,8 @@ namespace CRUD_Operations
                 try
                 {
                     string id = Request.QueryString["id"].ToString();
+                    Edit obj = new Edit();
+                    obj.deleteFile(Convert.ToInt32(id));
                     string conn = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
                     SqlConnection cn = new SqlConnection(conn);
                     SqlCommand cmd = new SqlCommand("DeleteEmployee", cn);
@@ -26,6 +28,7 @@ namespace CRUD_Operations
                     cn.Open();
                     cmd.ExecuteNonQuery();
                     cn.Close();
+
                 }
                 catch (Exception ex)
                 {

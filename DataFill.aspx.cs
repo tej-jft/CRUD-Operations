@@ -37,7 +37,8 @@ namespace CRUD_Operations
                         string email = dr["email"].ToString();
                         string contact = dr["Contact"].ToString();
                         string salary = dr["Salary"].ToString();
-                        Response.Write(name + "|" + email + "|" + contact + "|" + salary + "|");
+                        string image = dr["image"].ToString();
+                        Response.Write(name + "|" + email + "|" + contact + "|" + salary + "|"+image+"|");
                     }
                 }
                 catch (Exception ex)

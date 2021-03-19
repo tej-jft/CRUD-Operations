@@ -50,8 +50,8 @@ h2 {
 }
 
 .spcbtn{
-    margin:5px;
 
+    margin:2% 2%;
 }
 .lbtn{
     float:right;
@@ -63,4 +63,19 @@ h2 {
 }
 input{
     max-width:none;
+}
+.f-input {
+    padding: 1% !important;
+    border: 1px solid #80808096 !important;
+    MARGIN: 3% 9% !important;
+    border-radius: 2% !important;
+    width: 80% !important;
+}
+td{
+    width:fit-content !important;
+    float:none !important;
+}
+.modal-adjust{
+    display:flex !important;
+    justify-content:center !important;
 }

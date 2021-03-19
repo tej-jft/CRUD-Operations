@@ -6,7 +6,7 @@ namespace CRUD_Operations
 {
     public partial class Add : System.Web.UI.Page
     {
-        string name, email, contact, salary;
+        string name, email, contact, salary,image;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (System.Web.HttpContext.Current.Session["id"] == null)
@@ -21,6 +21,7 @@ namespace CRUD_Operations
                     email = Request.QueryString["email"].ToString();
                     contact = Request.QueryString["contact"].ToString();
                     salary = Request.QueryString["salary"].ToString();
+                    image = Request.QueryString["image"].ToString();
 
                     string conn = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
                     SqlConnection cn = new SqlConnection(conn);
@@ -30,6 +31,7 @@ namespace CRUD_Operations
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@Contact", contact);
                     cmd.Parameters.AddWithValue("@Salary", salary);
+                    cmd.Parameters.AddWithValue("@image", image);
 
                     cn.Open();
                     cmd.ExecuteNonQuery();

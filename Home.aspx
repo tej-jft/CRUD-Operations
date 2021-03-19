@@ -10,12 +10,12 @@
                 <table style="width: 100%; height: 93px;">
                     <thead>
                         <tr>
-                            <th>S. No.</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Contact No.</th>
-                            <th>Salary</th>
-                            <th>&nbsp;</th>
+                            <th class="col-sm-1">S. No.</th>
+                            <th class="col-sm-2">Name</th>
+                            <th class="col-sm-3">Email</th>
+                            <th class="col-sm-2">Contact No.</th>
+                            <th class="col-sm-1">Salary</th>
+                            <th >&nbsp;</th>
                         </tr>
                     </thead>
                     
@@ -31,25 +31,36 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="EditModalLongTitle">Edit Record</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dimdiss="modal" aria-label="Close">
                   <span aria-hidden="true" style="margin-top: -162%;float: right;">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
                     <div class="container-fluid">
                     <div class="form-row">
-                        <div class="col-sm-3">
+                        <div class="col-md-3">
                             <asp:Label ID="Label1" runat="server" Text="Name: "></asp:Label><input class="form-control" id="empname" placeholder="Name" type="text" runat="server" autoclear="true"/>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-md-3">
                             <asp:Label ID="Label6" runat="server" Text="Email: "></asp:Label><input class="form-control" id="empmail" placeholder="Email" type="text" runat="server" autoclear="true"/>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-md-3">
                             <asp:Label ID="Label7" runat="server" Text="Contact No: "></asp:Label><input class="form-control" id="empcontact" placeholder="Contact" type="text" runat="server" autoclear="true"/>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-md-3">
                             <asp:Label ID="Label8" runat="server" Text="Salary: "></asp:Label><input class="form-control" id="empsalary" placeholder="Salary" type="text" runat="server" autoclear="true"/>
                         </div>
+                    </div>
+                    <div class="form-row">
+                       <div class="col-md-3 f-input">
+                          <div class="custom-file" style="padding: 6px 20px;">
+<<<<<<< HEAD
+                             <label class="" for="customFileLang">Select Image: </label> <input accept="image/*" type="file" class="custom-file-input btn-secondary" id="toUpload"  value="" style="display:inline-block">
+=======
+                             <label class="" for="customFileLang">Select Image: </label> <input type="file" class="custom-file-input btn-secondary" id="" style="display:inline-block">
+>>>>>>> 96e2014b8f507590f83957c7bec7940ceb4ac00c
+                           </div>
+                       </div>
                     </div>
                 </div>
               </div>
@@ -83,17 +94,17 @@
 </div>
 <!--Alert Modal-->
 <!-- Modal -->
-<div class="modal fade" id="Alert Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="AlertModalTitle">Alert!!!</h5>
+        <h5 class="modal-title" id="AlertModalTitle">Your Image</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        <div class="modal-body">
-            
+        <div class="modal-body modal-adjust">
+         <img src="#" id="ModalImage" height="200px" width="300px"/>
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
@@ -120,34 +131,49 @@
                         <div class="col-sm-3">
                             <asp:Label ID="Label2" runat="server" Text="Name: "></asp:Label><input class="form-control" id="ename" type="text" runat="server" autoclear="true"/>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-md-3">
                             <asp:Label ID="Label3" runat="server" Text="Email: "></asp:Label><input class="form-control" id="email" type="text" runat="server" autoclear="true"/>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-md-3">
                             <asp:Label ID="Label4" runat="server" Text="Contact No: "></asp:Label><input class="form-control" id="econtact" type="text" runat="server" autoclear="true"/>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-md-3">
                             <asp:Label ID="Label5" runat="server" Text="Salary: "></asp:Label><input class="form-control" id="esalary" type="text" runat="server" autoclear="true"/>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-sm-12" style="margin: 1% 40%;">
-                           
-                        </div>
+                       <div class="col-md-3 f-input">
+                          <div class="custom-file" style="padding: 6px 20px;">
+                             <label class="" for="customFileLang">Select Image: </label> <input type="file" class="custom-file-input btn-secondary" id="toUpload" style="display:inline-block">
+                              <progress id="fileProgress" style="display: none"></progress><hr /><span id="lblMessage" style="color: Green"></span>
+                           </div>
+                       </div>
                     </div>
-                </div>
+                    </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <input class="btn btn-primary" ID="btn_add" type="button" value="Add Record" data-dismiss="modal" onclick="AddRec()" />
+                <input class="btn btn-primary" ID="btn_add" type="button" value="Add Record" data-dismiss="modal" onclick="Addcall()" />
               </div>
             </div>
           </div>
         </div>
         <!--End Modal for new record-->
 <script>
+    var fileName;
+    var curentFile;
     //Add New Record
+    function Addcall() {
+        imageUpload("Add");
+
+    //Add New Record
+    function Addcall() {
+        imageUpload();
+
+        AddRec();
+    }
     function AddRec() {
+        alert(fileName);
         var mdbutton = document.getElementById("btn_add");
         var ename = document.getElementById("MainContent_ename").value;
         var eemail = document.getElementById("MainContent_email").value;
@@ -183,7 +209,7 @@
         }
             
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "/Add.aspx?name=" + ename + "&email=" + eemail + "&contact=" + econtact + "&salary=" + esalary, false);
+        xmlhttp.open("POST", "/Add.aspx?name=" + ename + "&email=" + eemail + "&contact=" + econtact + "&salary=" + esalary+"&image="+fileName, false);
 
         //$.ajax({
         //    url: "Add.aspx",
@@ -199,6 +225,7 @@
         document.getElementById("MainContent_email").value = "";
         document.getElementById("MainContent_econtact").value = "";
         document.getElementById("MainContent_esalary").value = "";
+        document.getElementById("toUpload").value = "";
         refresh();
     }
     //Identifier for the record updater
@@ -215,7 +242,7 @@
         var indexofsplitter = responseString.indexOf("|", 0);
         var initialIndex = 0;
         var values = [];
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < 5; i++) {
             values[i] = responseString.substring(initialIndex, indexofsplitter);
             initialIndex = indexofsplitter + 1;
             indexofsplitter = responseString.indexOf("|", indexofsplitter + 1);
@@ -224,6 +251,7 @@
         document.getElementById("MainContent_empmail").value = values[1];
         document.getElementById("MainContent_empcontact").value = values[2];
         document.getElementById("MainContent_empsalary").value = values[3];
+        curentFile = values[4];
         xmlhttp.abort;
     }
     //For-Updating any Record
@@ -263,8 +291,10 @@
         } else {
             document.getElementById("MainContent_empsalary").style.borderColor = "green";
         }
+        
+        imageUpload();
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "Edit.aspx?name=" + name.value + "&email=" + email.value + "&contact=" + contact.value + "&salary=" + salary.value+"&id="+id, false);
+        xmlhttp.open("POST", "Edit.aspx?name=" + name.value + "&email=" + email.value + "&contact=" + contact.value + "&salary=" + salary.value+"&id="+id+"&image="+fileName, false);
         xmlhttp.send(null);
         mdbutton.setAttribute("data-dismiss", "modal");
         document.getElementById("MainContent_empname").value = "";
@@ -272,6 +302,7 @@
         document.getElementById("MainContent_empcontact").value = "";
         document.getElementById("MainContent_empsalary").value = "";
         document.getElementById("empid").value = "";
+        document.getElementById("toUpload").value = "";
         refresh();
     }
     //Identifier For the Delete Button
@@ -295,6 +326,58 @@
         xmlhttp.send(null);
         document.getElementById("MainContent_lbltbl").innerHTML = xmlhttp.responseText;
         //xmlhttp.abort;
+    }
+    //Upload Image
+
+   function imageUpload(uploadtype) {
+       var fd = new FormData();
+       var files;
+       if (uploadtype == "Add") {
+           files = $('#toUpload')[1].files;
+       } else {
+           files = $('#toUpload')[0].files;
+       }
+
+   function imageUpload() {
+        var fd = new FormData();
+        var files = $('#toUpload')[0].files;
+
+        if (files.length > 0) {
+            fd.append('file', files[0]);
+        }
+        $.ajax({
+            url: 'ImageUploader.ashx',
+            type: 'POST',
+            data: fd,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (file) {
+                fileName = file.name;
+                $("#fileProgress").hide();
+            }, 
+            xhr: function () {
+                var fileXhr = $.ajaxSettings.xhr();
+                if (fileXhr.upload) {
+                    $("progress").show();
+                    fileXhr.upload.addEventListener("progress", function (e) {
+                        if (e.lengthComputable) {
+                            $("#fileProgress").attr({
+                                value: e.loaded,
+                                max: e.total
+                            });
+                        }
+                    }, false);
+                }
+                return fileXhr;
+            }
+        });
+    }
+    //Show Image in Modal
+    function showImage(path) {
+
+        document.getElementById("ModalImage").src = "./Images/" + path.toString();
     }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
